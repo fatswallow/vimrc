@@ -1177,7 +1177,16 @@ function! <SID>ToggleWindowsManager()
 	if IsWinManagerVisible()
 		call s:CloseWindowsManager()
 	else
+		"for Tlist
+		let tlistwidth = winwidth(bufwinnr(g:TagList_title))
 		call s:StartWindowsManager()
+		" close blank window when use NERD_tree
+		" and set Tlist width
+		exe 'wincmd h | q'
+		if tlistwidth > 0
+			exe bufwinnr(g:TagList_title).'wincmd w |'. tlistwidth.'wincmd |'
+		end
+		exe 'wincmd b'
 	end
 endfunction
 
