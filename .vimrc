@@ -62,18 +62,15 @@ let g:miniBufExplModSelTarget = 1
 let g:miniBufExplMoreThanOne=0
 
 "Gtags
-nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
-nnoremap <leader>gc :execute 'Unite gtags/context'<CR>
-nnoremap <leader>gr :execute 'Unite gtags/ref'<CR>
-nnoremap <leader>ge :execute 'Unite gtags/grep'<CR>
-vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
+"nnoremap <C-/> :GtagsCursor<CR>
+nnoremap <C-g> :execute 'Gtags '.expand('<cword>')<CR>
+nnoremap <C-/> :execute 'Gtags -gi '.expand('<cword>')<CR>
+nnoremap <C-\> :execute 'Gtags -gi '.expand('<cword>')<CR>
+set csprg=gtags-cscope
+"cscope add /foo/bar/GTAGS
 
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-l> <C-w><C-l>
-
-nnoremap <C-/> :GtagsCursor<CR>
-set csprg=gtags-cscope
-"cscope add /foo/bar/GTAGS
 
